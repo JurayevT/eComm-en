@@ -35,4 +35,24 @@
     </script> --}}
     
 </body>
+<style>
+    .custom-product {
+        /* height: 500px; */
+    }
+    img.slider-img {
+        margin: 0 auto;
+        height: 450px !important;
+    }
+    .slider-text {
+        background-color: #3544355e !important;
+    }
+    .prevv {
+        background: linear-gradient(to left, #ffffff, #5a5454) !important;
+        opacity: .7 !important;
+    }
+    .nextt {
+        background: linear-gradient(to right, #ffffff, #5a5454) !important;
+        opacity: .7 !important;
+    }
+</style>
 </html>
