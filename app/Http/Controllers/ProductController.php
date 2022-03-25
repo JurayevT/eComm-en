@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
 
-use function PHPUnit\Framework\returnSelf;
-
 class ProductController extends Controller
 {
     //
@@ -39,7 +37,7 @@ class ProductController extends Controller
             return redirect('/');
         }
         else 
-            return redirect('/login');
+              return redirect('/login');
     }
     function cartItem()
     {
@@ -52,11 +50,28 @@ class ProductController extends Controller
         $products = DB::table('cart')
         ->join('products', 'cart.product_id', '=', 'products.id')
         ->where('cart.user_id', $userID)
-        ->select('products.*')
+        ->select('products.*', 'cart.id as cartId')
         ->get();
 
         return view('cartlist', [
             'products' => $products
+        ]);
+    }
+    function removeCart($id)
+    {
+        Cart::destroy($id);
+        return redirect('/cartlist');
+    }
+    function orderNow()
+    {
+        $userID = Session::get('user')->id;
+        $total = DB::table('cart')
+        ->join('products', 'cart.product_id', '=', 'products.id')
+        ->where('cart.user_id', $userID)
+        ->sum('products.price');
+
+        return view('ordernow', [
+            'total' => $total
         ]);
     }
 }

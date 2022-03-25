@@ -1,10 +1,12 @@
 <?php
 use App\Http\Controllers\ProductController;
 $total = 0;
+$cartLink = 'login';
 $hasUser = Session::has('user');
 if ($hasUser) {
   $total = ProductController::cartItem();
   $user = Session::get('user');
+  $cartLink = 'cartlist';
 }
 
 ?>
@@ -25,7 +27,7 @@ if ($hasUser) {
         </ul>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/cartlist">Cart({{ $total }})</a>
+            <a class="nav-link" href="/{{ $cartLink }}">Cart({{ $total }})</a>
           </li>
           @if ($hasUser)
             <li class="nav-item dropdown">
