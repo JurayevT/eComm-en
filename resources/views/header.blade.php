@@ -25,7 +25,7 @@ if ($hasUser) {
             <a class="nav-link" href="/myorders">Orders</a>
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex">
           <li class="nav-item">
             <a class="nav-link" href="/{{ $cartLink }}">Cart({{ $total }})</a>
           </li>
@@ -42,7 +42,10 @@ if ($hasUser) {
             </li>
           @else
             <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
+              <a class="nav-link" href="/log">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/reg">Register</a>
             </li>
           @endif
           
