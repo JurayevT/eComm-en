@@ -26,24 +26,25 @@
             </tbody>
         </table>
         <div>
-            <form action="/action_page.php">
+            <form action="/orderplace" method="POST">
+              @csrf
                 <div class="form-group">
-                  <textarea placeholder="enter your address" rows="3" class="form-control"></textarea>
+                  <textarea name="address" placeholder="enter your address" rows="3" class="form-control"></textarea>
                   <label class="mt-4 mb-2">Payment Method:</label>
                   <div class="form-check py-1">
-                    <input class="form-check-input" type="radio" name="payment" id="payment1" checked>
+                    <input class="form-check-input" value="cash" type="radio" name="payment" id="payment1" checked>
                     <label class="form-check-label" for="payment1">
                         online payment
                     </label>
                   </div>
                   <div class="form-check py-1">
-                    <input class="form-check-input" type="radio" name="payment" id="payment2">
+                    <input class="form-check-input" value="cash" type="radio" name="payment" id="payment2">
                     <label class="form-check-label" for="payment2">
                         EMI payment
                     </label>
                   </div>
                   <div class="form-check py-1">
-                    <input class="form-check-input" type="radio" name="payment" id="payment3">
+                    <input class="form-check-input" value="cash" type="radio" name="payment" id="payment3">
                     <label class="form-check-label" for="payment3">
                         Payment on Delivery
                     </label>
